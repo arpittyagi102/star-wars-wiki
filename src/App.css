@@ -1,0 +1,25 @@
+.upper-bar{
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    flex-direction: row;
+
+    .search-bar{  
+        height: 20px;
+        width: 200px;
+        padding: 4px 2px;
+        border: solid white 1px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+
+        .input{
+            background: transparent;
+            border:none;
+            
+            &:focus {
+                outline:none;
+            }
+        }
+    }
+}
