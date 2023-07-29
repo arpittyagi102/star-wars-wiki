@@ -2,7 +2,7 @@
 
 ### Styling
 - I have decided to use inline styling instead of tailwind CSS or bootsrap, as it will showcase my skills.
-- I realised that we can use nested css in native css without using sass
+> I realised that we can use nested css in native css without using sass
 
 
 ### Upper-bar

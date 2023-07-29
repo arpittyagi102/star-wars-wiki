@@ -5,7 +5,7 @@
     flex-direction: row;
 
     .search-bar{  
-        height: 20px;
+        height: 24px;
         width: 200px;
         padding: 4px 2px;
         border: solid white 1px;
@@ -15,10 +15,14 @@
 
         .input{
             background: transparent;
-            border:none;
-            
+            border: none;
+            color: white;
+
             &:focus {
                 outline:none;
+            }
+            &:placeholder{
+                color:white;
             }
         }
     }
