@@ -1,6 +1,8 @@
-//import Dashboard from "./Pages/Dashboard"
+import Dashboard from "./Pages/Dashboard"
 import './App.css';
-import logo from "./Assets/logo.png"
+import logo from './Assets/logo.png'
+import folder from './Assets/folder.svg'
+import caret from './Assets/caret.svg'
 
 export default function App(){
 
@@ -17,10 +19,29 @@ export default function App(){
             <input className='input' placeholder='Search'/>
           </div>
       </div>
+      <div className="wrapper">
+          <nav className='side-navbar'>
+            {
+              ['Films','People','Planets','Species','Starships','Vehicals'].map((item,key) => <Folder folderName={item} key={key}/>)
+            }
+          </nav>
 
-      <nav>
-        
-      </nav>
+          <main className="main">
+            <Dashboard/>
+          </main>
+      </div>
+    </>
+  )
+}
+
+function Folder({ folderName }){
+  return (
+    <>
+      <div className='folder'>
+          <img src={folder} alt="folder" className='folder-icon'/>
+          <div className='folder-name'>{folderName}</div>
+          <img src={caret} alt="caret" className='caret-icon'/>
+      </div>
     </>
   )
 }
