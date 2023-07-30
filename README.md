@@ -8,3 +8,5 @@
 ### Upper-bar
 I first searched this logo on google and found this website https://www.freepnglogos.com/ ,so i am using its link for the logo on top-right also i noticed that on the first slide there is no search bar, I will keep it there but make its { display : 'none' }
 
+this needs to be updated
+
