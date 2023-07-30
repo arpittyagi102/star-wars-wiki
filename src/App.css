@@ -43,6 +43,14 @@
         justify-content: flex-start;
         gap: 10px;
         border-radius: 4px;
+
+        .folder.active{
+            background-color: #CB1A80;
+
+            &:hover{
+                background-color: #CB1A80;
+            }
+        }
     
         .folder{
             padding:8px 12px;
@@ -50,6 +58,12 @@
             gap:8px;
             height: 20px;
             align-items: center;
+            border-radius: 6px;
+            cursor: pointer;
+            
+            &:hover{
+                background-color: #3B3F5C;
+            }
             
             .folder-name{
                 width: 125px;
@@ -57,7 +71,48 @@
                 font-size: 14px;
                 letter-spacing: 0.5px;
             }
+
+            .loading-icon{
+                width: 20px;
+            }
         }
+
+        .children{
+            display: flex;
+            flex-direction: column;
+            width:200px;
+            align-items: flex-end;
+
+            .file{
+                padding:8px 12px;
+                display: flex;
+                gap:8px;
+                height: 20px;
+                align-items: center;
+                border-radius: 6px;
+                cursor: pointer;
+                
+                &:hover{
+                    background-color: #3B3F5C;
+                }
+
+                .icon{
+                    width: 20px;
+                }
+                
+                .data-name{
+                    width: 100px;
+                    font-weight: 500;
+                    font-size: 14px;
+                    letter-spacing: 0.5px;
+                    overflow: hidden;
+                    height: 20px;
+                    white-space: nowrap;
+                }
+    
+            }
+        }
+
     }
 
     .main{
@@ -65,6 +120,7 @@
         align-items: center;
         justify-content: center;
         flex-grow:1;
+        flex-direction: column;
 
         .dashboard-card{
             background-color: white;
@@ -105,4 +161,43 @@
 
         }
     }
+}
+
+.display-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+    gap:20px;
+
+    .files-card{
+
+        .card-cover{
+            height: 160px;
+            width: 354px;
+            border-radius: 8px;
+        }
+
+        .card-bottom{
+            height: 32px;
+            width: 330px;
+            padding: 12px;
+            background-color: #3B3F5C;
+            display: flex;
+            align-items: center;
+            border-radius: 8px;
+            gap: 10px;
+
+            .icon{
+                height: 20px;
+            }
+
+            .content{
+                flex-grow: 1;
+            }
+
+
+        }
+    }
+
 }

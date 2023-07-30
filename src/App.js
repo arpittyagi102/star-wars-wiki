@@ -1,10 +1,18 @@
+import React,{useState} from "react";
 import Dashboard from "./Pages/Dashboard"
 import './App.css';
 import logo from './Assets/logo.png'
-import folder from './Assets/folder.svg'
-import caret from './Assets/caret.svg'
+import Folder from "./Pages/Nav-folder";
+import Display from "./Pages/Display";
 
 export default function App(){
+
+  const [active, setActive] = useState(null);
+  const [files, setFiles] = useState([]);
+
+  const getDataFromNavFolder = (data) => {
+      setFiles(data);
+  } 
 
   return (
     <>
@@ -22,25 +30,26 @@ export default function App(){
       <div className="wrapper">
           <nav className='side-navbar'>
             {
-              ['Films','People','Planets','Species','Starships','Vehicals'].map((item,key) => <Folder folderName={item} key={key}/>)
+              ['Films','People','Planets','Species','Starships','Vehicles'].map((item,key) => 
+                { return( 
+                    <Folder 
+                        folderName={item} 
+                        key={key} 
+                        active={active} 
+                        setActive={setActive} 
+                        files={files} 
+                        setFilesUpLift={getDataFromNavFolder}/>
+                )})
             }
           </nav>
 
           <main className="main">
-            <Dashboard/>
+            { active ? ( 
+              <Display folderName={active} files={files}/>
+            ) : (
+              <Dashboard/>
+            )}
           </main>
-      </div>
-    </>
-  )
-}
-
-function Folder({ folderName }){
-  return (
-    <>
-      <div className='folder'>
-          <img src={folder} alt="folder" className='folder-icon'/>
-          <div className='folder-name'>{folderName}</div>
-          <img src={caret} alt="caret" className='caret-icon'/>
       </div>
     </>
   )

@@ -5,7 +5,7 @@ export default function Dashboard(){
     return (
       <>
         <div className="dashboard-card">
-            <img src={dashboardImage} alt="Dashboard Image" className='dashboard-image'/>
+            <img src={dashboardImage} alt="Dashboard" className='dashboard-image'/>
             <h3 className='h4'>Welcome to Star Wars <br/>Dashboard</h3>
             <p className='p'>
                 Star Wars is an American epic space opera multimedia franchise created by George Lucas, 
