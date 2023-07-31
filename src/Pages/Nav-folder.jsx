@@ -63,8 +63,13 @@ export default function Folder({ folderName, active, setActive, setFilesUpLift }
 } 
 
 function Files({type, data}){
+
+    function handleClick(){
+        console.log(data);
+    }
+
     return(
-        <div className='file'>
+        <div className='file' onClick={handleClick}>
             <img className='icon' src={films} alt='icons'/>
             <div className='data-name'>{data.title ?? data.name}</div>
             <img src={caret} alt="caret" className='caret-icon'/>

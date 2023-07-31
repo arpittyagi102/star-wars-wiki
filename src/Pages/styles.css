@@ -1,0 +1,65 @@
+.display{
+    .upper{
+        display: flex;
+        justify-content: space-between;
+        margin:0 5vw;
+    }
+
+    .buttons{
+        border:solid;
+        height: max-content;
+        border-radius: 4px;
+
+        .btn{
+            padding:6px;
+            border:none;
+        }
+
+        .active{
+            background-color: white;
+        }
+        .inactive{
+            
+        }
+    }
+
+
+    .display-wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-content: space-evenly;
+        gap:20px;
+    
+        .files-card{
+    
+            .card-cover{
+                height: 160px;
+                width: 354px;
+                border-radius: 8px;
+            }
+    
+            .card-bottom{
+                height: 32px;
+                width: 330px;
+                padding: 12px;
+                background-color: #3B3F5C;
+                display: flex;
+                align-items: center;
+                border-radius: 8px;
+                gap: 10px;
+    
+                .icon{
+                    height: 20px;
+                }
+    
+                .content{
+                    flex-grow: 1;
+                }
+    
+    
+            }
+        }
+    
+    }
+}
