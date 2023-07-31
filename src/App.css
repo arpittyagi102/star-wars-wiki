@@ -117,6 +117,7 @@
 
     .main{
         display: flex;
+        align-self: start;
         align-items: center;
         justify-content: center;
         flex-grow:1;

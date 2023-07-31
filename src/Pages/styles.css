@@ -1,4 +1,6 @@
 .display{
+    width:95%;
+
     .upper{
         display: flex;
         justify-content: space-between;
@@ -6,13 +8,17 @@
     }
 
     .buttons{
-        border:solid;
         height: max-content;
+        border:solid;
         border-radius: 4px;
+        display: flex;
+        align-items: center;
 
         .btn{
             padding:6px;
             border:none;
+            display: flex;
+            align-items: center;
         }
 
         .active{
@@ -60,6 +66,34 @@
     
             }
         }
-    
+
+        .table-wrapper{
+            width:100%;
+
+            .header.item{
+                background-color: #3B3F5C;
+                border-radius: 4px;
+            }
+
+            .item{
+                width:90%;
+                display:flex;
+                justify-content: space-between;
+                padding: 12px 5%;
+
+                .name{
+                    width:34%;
+                }
+                .director{
+                    width:26%;
+                }
+                .release-date{
+                    width:26%;
+                }
+                .empty{
+                    width:14%;
+                }
+            }
+        } 
     }
 }
