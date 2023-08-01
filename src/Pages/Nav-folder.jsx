@@ -9,9 +9,8 @@ import species from '../Assets/species.svg'
 import starships from '../Assets/starships.svg'
 import vehicles from '../Assets/vehicles.svg' */
 
-export default function Folder({ folderName, active, setActive, setFilesUpLift }){
+export default function Folder({ folderName, active, setActive, setFilesUpLift, isLoading, setIsLoading }){
 
-    const [isLoading, setIsLoading] = useState(false);
     const [isLoadedAlready, setIsLoadedAlready] = useState(false);
     const [files, setFiles] = useState([]);
     const [activeFolderData, setActiveFolderData] = useState([]); 
@@ -36,7 +35,6 @@ export default function Folder({ folderName, active, setActive, setFilesUpLift }
         const json = await data.json();
         setIsLoading(false);
         setIsLoadedAlready(true)
-        console.log(json)
         setFiles(json.results);
         setActiveFolderData({ folderName, data: json.results });
         setFilesUpLift(json.results);
@@ -47,9 +45,7 @@ export default function Folder({ folderName, active, setActive, setFilesUpLift }
         <div className={`folder  ${active===folderName && "active"}`} onClick={handleClick}>
             <img src={folder} alt="folder" className='folder-icon'/>
             <div className='folder-name'>{folderName}</div>
-            { isLoading ?
-                ( <img src={loader} alt="caret" className='loading-icon'/> ) :
-                ( <img src={caret} alt="caret" className='caret-icon'/> )}
+            <img src={caret} alt="caret" className='caret-icon'/>
         </div>
         <div className='children' style={{display:active!==folderName && 'none'}}> 
             { files.map((item,key) => {

@@ -1,14 +1,20 @@
 import films from '../Assets/films.svg';
 import caret from '../Assets/caret.svg';
+import verticalDots from '../Assets/vertical-dots.svg';
+import loader from '../Assets/loader.svg';
 import React,{ useState } from 'react';
 import './styles.css'
 
-export default function Display({ folderName, files}){
+export default function Display({ folderName, files, isLoading}){
 
     const [isGrid, setIsGrid] = useState(true);
 
+    if(isLoading){
+        return (<img src={loader} alt='loader' className='loader'/>)
+    }
+
     return(
-        <div className='display'>
+        <div className='display' style={{backgroundColor:isLoading && 'red'}}>
             <div className='upper'>
                 <h2>{folderName}</h2>
                 <div className='buttons'>
@@ -23,7 +29,7 @@ export default function Display({ folderName, files}){
                     <button className={`btn ${!isGrid ? 'active':'inactive'}`} onClick={() => setIsGrid(false)}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <g id="View list">
-                                <path fill={!isGrid ? '#696974' : '#ffffff'} id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M5 6C5 5.73478 5.10536 5.48043 5.29289 5.29289C5.48043 5.10536 5.73478 5 6 5H18C18.2652 5 18.5196 5.10536 18.7071 5.29289C18.8946 5.48043 19 5.73478 19 6C19 6.26522 18.8946 6.51957 18.7071 6.70711C18.5196 6.89464 18.2652 7 18 7H6C5.73478 7 5.48043 6.89464 5.29289 6.70711C5.10536 6.51957 5 6.26522 5 6ZM5 10C5 9.73478 5.10536 9.48043 5.29289 9.29289C5.48043 9.10536 5.73478 9 6 9H18C18.2652 9 18.5196 9.10536 18.7071 9.29289C18.8946 9.48043 19 9.73478 19 10C19 10.2652 18.8946 10.5196 18.7071 10.7071C18.5196 10.8946 18.2652 11 18 11H6C5.73478 11 5.48043 10.8946 5.29289 10.7071C5.10536 10.5196 5 10.2652 5 10ZM5 14C5 13.7348 5.10536 13.4804 5.29289 13.2929C5.48043 13.1054 5.73478 13 6 13H18C18.2652 13 18.5196 13.1054 18.7071 13.2929C18.8946 13.4804 19 13.7348 19 14C19 14.2652 18.8946 14.5196 18.7071 14.7071C18.5196 14.8946 18.2652 15 18 15H6C5.73478 15 5.48043 14.8946 5.29289 14.7071C5.10536 14.5196 5 14.2652 5 14ZM5 18C5 17.7348 5.10536 17.4804 5.29289 17.2929C5.48043 17.1054 5.73478 17 6 17H18C18.2652 17 18.5196 17.1054 18.7071 17.2929C18.8946 17.4804 19 17.7348 19 18C19 18.2652 18.8946 18.5196 18.7071 18.7071C18.5196 18.8946 18.2652 19 18 19H6C5.73478 19 5.48043 18.8946 5.29289 18.7071C5.10536 18.5196 5 18.2652 5 18Z" />
+                                <path fill={!isGrid ? '#696974' : '#ffffff'} id="Vector" fillRule="evenodd" clipRule="evenodd" d="M5 6C5 5.73478 5.10536 5.48043 5.29289 5.29289C5.48043 5.10536 5.73478 5 6 5H18C18.2652 5 18.5196 5.10536 18.7071 5.29289C18.8946 5.48043 19 5.73478 19 6C19 6.26522 18.8946 6.51957 18.7071 6.70711C18.5196 6.89464 18.2652 7 18 7H6C5.73478 7 5.48043 6.89464 5.29289 6.70711C5.10536 6.51957 5 6.26522 5 6ZM5 10C5 9.73478 5.10536 9.48043 5.29289 9.29289C5.48043 9.10536 5.73478 9 6 9H18C18.2652 9 18.5196 9.10536 18.7071 9.29289C18.8946 9.48043 19 9.73478 19 10C19 10.2652 18.8946 10.5196 18.7071 10.7071C18.5196 10.8946 18.2652 11 18 11H6C5.73478 11 5.48043 10.8946 5.29289 10.7071C5.10536 10.5196 5 10.2652 5 10ZM5 14C5 13.7348 5.10536 13.4804 5.29289 13.2929C5.48043 13.1054 5.73478 13 6 13H18C18.2652 13 18.5196 13.1054 18.7071 13.2929C18.8946 13.4804 19 13.7348 19 14C19 14.2652 18.8946 14.5196 18.7071 14.7071C18.5196 14.8946 18.2652 15 18 15H6C5.73478 15 5.48043 14.8946 5.29289 14.7071C5.10536 14.5196 5 14.2652 5 14ZM5 18C5 17.7348 5.10536 17.4804 5.29289 17.2929C5.48043 17.1054 5.73478 17 6 17H18C18.2652 17 18.5196 17.1054 18.7071 17.2929C18.8946 17.4804 19 17.7348 19 18C19 18.2652 18.8946 18.5196 18.7071 18.7071C18.5196 18.8946 18.2652 19 18 19H6C5.73478 19 5.48043 18.8946 5.29289 18.7071C5.10536 18.5196 5 18.2652 5 18Z" />
                             </g>
                         </svg>
                         <span className='content' style={{color:!isGrid ? '#696974' : '#ffffff',display:!isGrid ? 'flex' : 'none'}}>List</span>
@@ -53,22 +59,46 @@ function Cards({ files }){
 }
 
 function Table({ files }){
-    console.log(files);
+    const c = files[0].url.slice(22,-3);
+    console.log(c);
+    
     return(
         <div className='table-wrapper'>
             <div className='header item'>
                 <div className='name'> Name</div>
-                <div className='director'> Director</div>
-                <div className='release-date'> Release Date</div>
+                <div className='first'> 
+                    {(c==='films' && 'Director') ??
+                    (c==='people' && 'Birth Year') ??
+                    (c==='planets' && 'Climate') ??
+                    (c==='species' && 'Home World') ??
+                    (c==='Starships' && 'Model') ??
+                    (c==='vehicles' && 'Model') ?? 'Loading...'}
+                </div>
+                <div className='second'> 
+                    {(c==='films' && 'Release Date') ??
+                    (c==='people' && 'Species') ??
+                    (c==='planets' && 'Gravity') ??
+                    (c==='species' && 'Lifespan') ??
+                    (c==='Starships' && 'Hyperdrive Rating') ??
+                    (c==='vehicles' && 'Top Speed') ?? 'Loading...'}
+                </div>
                 <div className='empty'> </div>
             </div>
             {files.map((item) => {
                 return (
                     <div className='item'>
-                        <div className='name'>{item.title}</div>
-                        <div className='director'>{item.director}</div>
-                        <div className='release-date'>{item.release_date}</div>
-                        <div className='empty'> </div>
+                        <div className='name'>
+                            {item.title ?? item.name ?? 'No data available'}
+                        </div>
+                        <div className='first'>
+                            {item.director ?? item.birth_year ?? item.climate ?? item.homeworld ?? item.model ?? 'No data available'}
+                        </div>
+                        <div className='second'>
+                            {item.release_date ?? (item.species && item.species[0]) ?? item.gravity ?? item.average_lifespan ?? item.hyperdrive_rating ?? item.max_atmosphering_speed ?? 'No data available'}
+                        </div>
+                        <div className='empty'>
+                            <img src={verticalDots} alt='vertical dots' className='dots' />
+                        </div>
                     </div>
                 )
             })

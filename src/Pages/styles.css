@@ -1,5 +1,8 @@
+.loader{
+    width:100px;
+}
+
 .display{
-    width:95%;
 
     .upper{
         display: flex;
@@ -79,20 +82,27 @@
                 width:90%;
                 display:flex;
                 justify-content: space-between;
-                padding: 12px 5%;
+                padding: 15px 5%;
+                border-bottom: solid 1px;
 
                 .name{
                     width:34%;
                 }
-                .director{
+                .first{
                     width:26%;
                 }
-                .release-date{
+                .second{
                     width:26%;
                 }
                 .empty{
                     width:14%;
+                    display: flex;
+                    justify-content: end;
                 }
+            }
+
+            .item:last-child,.header{
+                border-bottom: none;
             }
         } 
     }

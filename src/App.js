@@ -9,6 +9,7 @@ export default function App(){
 
   const [active, setActive] = useState(null);
   const [files, setFiles] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const getDataFromNavFolder = (data) => {
       setFiles(data);
@@ -38,14 +39,17 @@ export default function App(){
                         active={active} 
                         setActive={setActive} 
                         files={files} 
-                        setFilesUpLift={getDataFromNavFolder}/>
+                        setFilesUpLift={getDataFromNavFolder}
+                        isLoading={isLoading}
+                        setIsLoading={setIsLoading}
+                    />
                 )})
             }
           </nav>
 
           <main className="main">
             { active ? ( 
-              <Display folderName={active} files={files}/>
+              <Display folderName={active} files={files} isLoading={isLoading}/>
             ) : (
               <Dashboard/>
             )}
